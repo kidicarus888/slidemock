@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolic Disease Control Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- INSTITUTIONAL THEME VARIABLES --- */
+        :root {
+            --color-bg: #ffffff;
+            --color-bg-subtle: #f9fafb;
+            --color-text-primary: #111827; /* Near Black */
+            --color-text-secondary: #4b5563; /* Cool Grey */
+            --color-accent: #0f766e; /* Clinical Teal - Serious & Calm */
+            --color-border: #e5e7eb;
+            --color-line: #d1d5db;
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-sans);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+        }
+
+        /* --- MAIN WEBSITE CONTAINER --- */
+        .web-container {
+            background: var(--color-bg);
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- 1. HEADER (HERO) --- */
+        header {
+            padding: 60px 80px;
+            background: white;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .header-content h1 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            margin: 0 0 16px 0;
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+        .header-content p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0;
+            font-weight: 300;
+        }
+        .header-meta {
+            text-align: right;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9ca3af;
+            border-left: 2px solid var(--color-border);
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- 2. TOP STATEMENT --- */
+        .statement-band {
+            background-color: var(--color-bg-subtle);
+            padding: 50px 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .statement-text {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            color: var(--color-text-primary);
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* --- SECTION DIVIDER --- */
+        .section-header {
+            background: #f8fafc;
+            padding: 60px 80px 30px;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            color: var(--color-text-primary);
+        }
+        .section-header p {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            margin: 0;
+            max-width: 800px;
+        }
+
+        /* --- 3. MAIN BODY GRID --- */
+        .main-body {
+            display: grid;
+            grid-template-columns: 1.2fr 1px 1fr; /* Left | Divider | Right */
+            background-color: var(--color-bg);
+            padding: 0;
+        }
+        .main-body.ecosystem-layout {
+            grid-template-columns: 1fr; 
+            padding: 60px 80px;
+        }
+
+        /* VERTICAL DIVIDER LINE */
+        .vertical-divider {
+            background-color: var(--color-border);
+            height: 100%;
+        }
+
+        /* --- LEFT COLUMN: THE CARE JOURNEY --- */
+        .col-left {
+            padding: 60px 80px;
+        }
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--color-border);
+        }
+
+        .journey-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            position: relative;
+        }
+        /* Connecting Line for Journey */
+        .journey-flow::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 20px;
+            bottom: 20px;
+            width: 1px;
+            background: var(--color-line);
+            z-index: 0;
+        }
+
+        .flow-item {
+            display: flex;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .flow-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: var(--color-text-primary);
+        }
+        .flow-content p {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+        .flow-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+        }
+        .flow-list li {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            position: relative;
+            padding-left: 14px;
+        }
+        .flow-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Sub-grid for Fixed vs Personalized */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: var(--color-bg-subtle);
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 1px solid var(--color-border);
+        }
+        .comp-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-text-primary);
+            margin: 0 0 12px 0;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- RIGHT COLUMN: GOVERNANCE --- */
+        .col-right {
+            padding: 60px 80px;
+            background-color: #fdfdfd; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* THE TRIANGLE VISUAL */
+        .triangle-visual {
+            position: relative;
+            height: 220px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 40px;
+        }
+        .tri-node {
+            position: absolute;
+            background: white;
+            border: 1px solid var(--color-border);
+            padding: 10px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 160px;
+            z-index: 2;
+        }
+        .tri-node strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        .tri-node span {
+            display: block;
+            font-size: 11px;
+            color: var(--color-text-secondary);
+        }
+        .tn-top { top: 0; left: 50%; transform: translateX(-50%); border-top: 3px solid var(--color-accent); }
+        .tn-left { bottom: 0; left: 5%; border-top: 3px solid #10b981; }
+        .tn-right { bottom: 0; right: 5%; border-top: 3px solid #6366f1; }
+
+        .tri-lines {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 100%;
+            z-index: 1;
+        }
+        .tl-left {
+            position: absolute;
+            top: 15px; left: 50%; width: 1px; height: 130px;
+            border-left: 1px dashed #d1d5db; transform-origin: top; transform: rotate(35deg);
+        }
+        .tl-right {
+            position: absolute;
+            top: 15px; right: 50%; width: 1px; height: 130px;
+            border-right: 1px dashed #d1d5db; transform-origin: top; transform: rotate(-35deg);
+        }
+        .tl-bottom {
+            position: absolute; bottom: 25px; left: 15%; right: 15%; height: 1px; border-bottom: 1px dashed #d1d5db;
+        }
+
+
+        .governance-box {
+            border: 1px solid var(--color-border);
+            background: white;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .governance-box.engine {
+            border-top: 4px solid var(--color-text-primary);
+        }
+        .gov-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .gov-list { margin: 0; padding: 0; list-style: none; }
+        .gov-list li {
+            font-size: 14px; color: var(--color-text-secondary); margin-bottom: 8px; display: flex; gap: 10px;
+        }
+        .gov-list li i { font-size: 12px; margin-top: 5px; color: #9ca3af; }
+
+        .escalation-container {
+            margin-top: auto;
+            padding-top: 40px;
+            border-top: 1px dashed var(--color-border);
+            position: relative;
+        }
+        .escalation-container::before {
+            content: "DOWNSTREAM ESCALATION";
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: #fdfdfd; padding: 0 10px; font-size: 11px; color: #9ca3af; font-weight: 600;
+        }
+        .escalation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .esc-item {
+            font-size: 13px; color: var(--color-text-secondary); padding: 10px;
+            background: var(--color-bg-subtle); border-left: 3px solid #d1d5db;
+        }
+
+        /* --- 4. ECONOMIC IMPACT BAND (METRICS) --- */
+        .impact-band {
+            background-color: #f0fdfa; /* Very light teal */
+            border-top: 1px solid #ccfbf1;
+            border-bottom: 1px solid #ccfbf1;
+            padding: 60px 80px;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .impact-title {
+            font-size: 16px; font-weight: 700; text-transform: uppercase; color: var(--color-accent);
+        }
+        .metrics-row {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+        }
+        .metric-card {
+            background: white; padding: 20px 24px;
+            border: 1px solid #e2e8f0; border-radius: 6px;
+            border-left: 4px solid var(--color-accent);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .metric-val {
+            font-family: var(--font-serif); font-size: 32px; font-weight: 600;
+            color: var(--color-text-primary); line-height: 1; margin-bottom: 8px; display: block;
+        }
+        .metric-label {
+            font-size: 12px; font-weight: 600; color: var(--color-text-secondary);
+            text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px;
+        }
+        .metric-desc {
+            font-size: 12px; color: #64748b; line-height: 1.4;
+        }
+
+        /* --- 5. ECOSYSTEM SECTION STYLES --- */
+        .ecosystem-diagram {
+            display: grid;
+            grid-template-columns: 320px 1fr 320px;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .center-hub {
+            background: #1f2937; color: white; padding: 40px 30px;
+            border-radius: 12px; text-align: center; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .center-hub h3 { margin: 0 0 12px 0; font-family: var(--font-serif); font-size: 20px; }
+        .center-hub p { font-size: 13px; color: #9ca3af; margin: 0; }
+        .center-hub::before {
+            content: ""; position: absolute; top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border: 1px dashed #d1d5db; z-index: -1; border-radius: 16px;
+        }
+
+        .partner-group { display: flex; flex-direction: column; gap: 20px; }
+        .partner-box {
+            background: white; border: 1px solid var(--color-border); padding: 20px;
+            border-radius: 8px; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .partner-box h4 { margin: 0 0 6px 0; font-size: 14px; font-weight: 700; color: var(--color-text-primary); }
+        .partner-names { font-size: 11px; font-weight: 600; color: var(--color-accent); margin-bottom: 6px; display: block; text-transform: uppercase; }
+        .partner-role { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+        
+        /* Connectors */
+        .partner-box.left::after { content: ""; position: absolute; top: 50%; right: -40px; width: 40px; height: 1px; background: #cbd5e1; }
+        .partner-box.right::before { content: ""; position: absolute; top: 50%; left: -40px; width: 40px; height: 1px; background: #cbd5e1; }
+
+        .benefits-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+            background: var(--color-bg-subtle); padding: 40px;
+            border-radius: 12px; border: 1px solid var(--color-border);
+        }
+        .benefit-col h4 {
+            font-size: 14px; font-weight: 700; color: var(--color-text-primary);
+            margin: 0 0 16px 0; border-bottom: 2px solid var(--color-accent);
+            display: inline-block; padding-bottom: 6px;
+        }
+        .benefit-list { list-style: none; padding: 0; margin: 0; }
+        .benefit-list li {
+            font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;
+            padding-left: 16px; position: relative; line-height: 1.5;
+        }
+        .benefit-list li::before {
+            content: "›"; position: absolute; left: 0; color: var(--color-accent);
+            font-weight: bold; font-size: 18px; line-height: 1; top: -1px;
+        }
+
+        .scope-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 60px;
+        }
+        .scope-card {
+            background: white; border: 1px solid var(--color-border); padding: 24px;
+            border-radius: 8px; position: relative; overflow: hidden; transition: all 0.2s;
+        }
+        .scope-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .scope-card.active { border-top: 4px solid var(--color-accent); }
+        .scope-card.next { border-top: 4px solid #3b82f6; }
+        .scope-card.future { border-top: 4px solid #9ca3af; background: #f9fafb; }
+        
+        .scope-title { font-size: 13px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 10px; text-transform: uppercase; }
+        .scope-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+        .scope-tag {
+            position: absolute; top: 12px; right: 12px; font-size: 10px;
+            padding: 3px 8px; border-radius: 100px; font-weight: 600; text-transform: uppercase;
+        }
+        .tag-live { background: #d1fae5; color: #065f46; }
+        .tag-next { background: #dbeafe; color: #1e40af; }
+        .tag-future { background: #f3f4f6; color: #4b5563; }
+
+        .process-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 60px;
+        }
+        .process-step {
+            background: white; padding: 30px; border: 1px solid var(--color-border);
+            border-radius: 10px; position: relative; transition: transform 0.2s;
+        }
+        .process-step:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .step-icon {
+            width: 48px; height: 48px; background: var(--color-bg-subtle);
+            border-radius: 8px; color: var(--color-accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; margin-bottom: 16px;
+        }
+        .process-step h4 { margin: 0 0 10px 0; font-size: 15px; font-weight: 700; color: var(--color-text-primary); }
+        .process-step p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin: 0; }
+        .step-tag {
+            position: absolute; top: 16px; right: 16px; font-size: 10px; font-weight: 700;
+            text-transform: uppercase; padding: 4px 8px; border-radius: 4px;
+            background: #f3f4f6; color: #6b7280;
+        }
+
+        /* --- 6. FOOTER --- */
+        footer {
+            padding: 60px 80px;
+            text-align: center;
+            background: #f8fafc;
+            border-top: 1px solid var(--color-border);
+        }
+        .footer-statement {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .web-container { max-width: 100%; box-shadow: none; }
+            .header-content h1 { font-size: 32px; }
+            .main-body { display: flex; flex-direction: column; }
+            .vertical-divider { display: none; }
+            .impact-grid { grid-template-columns: 1fr; gap: 30px; }
+            .ecosystem-diagram { grid-template-columns: 1fr; gap: 30px; }
+            .partner-box.left::after, .partner-box.right::before { display: none; }
+            .benefits-grid, .scope-grid, .process-grid { grid-template-columns: 1fr; }
+            header, .statement-band, .col-left, .col-right, .main-body.ecosystem-layout, .impact-band, footer { padding: 40px 20px; }
+            .metrics-row { grid-template-columns: 1fr; }
+            .triangle-visual { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <!-- HEADER (HERO) -->
+        <header>
+            <div class="header-content">
+                <h1>Controlling Metabolic Disease Early Through a Clinic-Led Care Journey</h1>
+                <p>A fixed yet personalized online-to-offline care pathway developed by Loop to control HbA1c early, manage complications only when necessary, and contain long-term costs.</p>
+            </div>
+            <div class="header-meta">
+                <span>Loop Health</span>
+                <span>Clinical Strategy</span>
+            </div>
+        </header>
+
+        <!-- TOP STATEMENT -->
+        <div class="statement-band">
+            <div class="statement-text">
+                "Loop operates a licensed digital metabolic clinic that intervenes early to control disease progression — standardizing care delivery while personalizing treatment for each patient."
+            </div>
+        </div>
+
+        <!-- MAIN BODY: STRATEGY & GOVERNANCE -->
+        <div class="main-body">
+            
+            <!-- LEFT: THE CARE JOURNEY -->
+            <div class="col-left">
+                <div class="section-label">The Loop Care Journey</div>
+
+                <div class="journey-flow">
+                    
+                    <!-- Step 1: Early Control -->
+                    <div class="flow-item">
+                        <div class="flow-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="flow-content">
+                            <h3>Early Disease Control & Prevention</h3>
+                            <p>Focuses on <strong>reversing prediabetes</strong> and controlling HbA1c at the earliest possible stage, before patients progress into high-cost complications.</p>
+                            <ul class="flow-list">
+                                <li>Continuous diagnostics & monitoring</li>
+                                <li>Protocol-driven treatment adjustments</li>
+                                <li>Early identification of deterioration</li>
+                                <li>Structured follow-ups by risk level</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Fixed Framework -->
+                    <div class="flow-item">
+                        <div class="flow-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div class="flow-content">
+                            <h3>Fixed but Personalized Framework</h3>
+                            <div class="comparison-grid">
+                                <div class="comp-col">
+                                    <h4>Fixed (For Payers)</h4>
+                                    <ul class="flow-list" style="display: block; padding: 0;">
+                                        <li>Standardized protocols</li>
+                                        <li>Defined diagnostics cadence</li>
+                                        <li>Clear escalation thresholds</li>
+                                    </ul>
+                                </div>
+                                <div class="comp-col">
+                                    <h4>Personalized (For Patients)</h4>
+                                    <ul class="flow-list" style="display: block; padding: 0;">
+                                        <li>Individual treatment plans</li>
+                                        <li>Variable monitoring intensity</li>
+                                        <li>Adaptive interventions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: O2O Delivery -->
+                    <div class="flow-item">
+                        <div class="flow-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="flow-content">
+                            <h3>Seamless Online-to-Offline (O2O) Delivery</h3>
+                            <p>A unified care model where digital efficiency meets physical necessity, coordinated entirely by the Loop App.</p>
+                            
+                            <!-- Expanded O2O Grid -->
+                            <div class="comparison-grid" style="margin-top: 10px;">
+                                <div class="comp-col">
+                                    <h4>In the App (Holistic Care Team)</h4>
+                                    <ul class="flow-list" style="display: block; padding: 0;">
+                                        <li><strong>Monitoring:</strong> Live CGM/glucometer sync.</li>
+                                        <li><strong>Video/Chat:</strong> 24/7 access to Doctors, Nutritionists, Psychologists & Fitness Coaches.</li>
+                                        <li><strong>Orders:</strong> 1-tap meds & home labs.</li>
+                                        <li><strong>Nudges:</strong> AI lifestyle coaching.</li>
+                                    </ul>
+                                </div>
+                                <div class="comp-col">
+                                    <h4>Physical Care & Collaboration</h4>
+                                    <ul class="flow-list" style="display: block; padding: 0;">
+                                        <li><strong>Loop Clinic:</strong> Retinopathy scans, Foot exams, Device setup, Acute stabilization.</li>
+                                        <li><strong>Partner Specialists:</strong> We coordinate advanced care (Dialysis, Cardiac, Surgery) with hospital teams.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VERTICAL DIVIDER -->
+            <div class="vertical-divider"></div>
+
+            <!-- RIGHT: GOVERNANCE & TRIANGLE -->
+            <div class="col-right">
+                <div class="section-label">Ecosystem Structure</div>
+
+                <!-- TRIANGLE DIAGRAM -->
+                <div class="triangle-visual">
+                    <div class="tri-lines">
+                        <div class="tl-left"></div>
+                        <div class="tl-right"></div>
+                        <div class="tl-bottom"></div>
+                    </div>
+                    
+                    <!-- Nodes -->
+                    <div class="tri-node tn-top">
+                        <strong>Digital Clinic</strong>
+                        <span>Outcome Owner</span>
+                    </div>
+                    <div class="tri-node tn-left">
+                        <strong>Patients</strong>
+                        <span>Early Intervention</span>
+                    </div>
+                    <div class="tri-node tn-right">
+                        <strong>Payers</strong>
+                        <span>Cost Control</span>
+                    </div>
+                </div>
+
+                <div class="section-label">Governance & Logic</div>
+
+                <!-- Central Engine -->
+                <div class="governance-box engine">
+                    <div class="gov-title"><i class="fa-solid fa-brain" style="color:var(--color-accent)"></i> Central Clinical Decision Engine</div>
+                    <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 12px;">
+                        All patient data feeds into a single system to guide decisions and orchestrate partners.
+                    </p>
+                    <ul class="gov-list">
+                        <li><i class="fa-solid fa-arrow-right"></i> Adjust care in real time</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Enforce step-care protocols</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Route to correct partner</li>
+                    </ul>
+                </div>
+
+                <!-- Escalation Control -->
+                <div class="escalation-container">
+                    <div class="gov-title"><i class="fa-solid fa-filter" style="color:#6b7280"></i> Complications Managed Only When Needed</div>
+                    
+                    <div class="escalation-grid">
+                        <div class="esc-item"><strong>Ophthalmology</strong><br>Retinopathy & Cataracts</div>
+                        <div class="esc-item"><strong>Nephrology</strong><br>CKD & Dialysis</div>
+                        <div class="esc-item"><strong>Cardiology</strong><br>Heart Failure & CAD</div>
+                        <div class="esc-item"><strong>Neurology</strong><br>Stroke & Neuropathy</div>
+                        <div class="esc-item"><strong>Podiatry</strong><br>Ulcers & Wound Care</div>
+                        <div class="esc-item"><strong>Mental Health</strong><br>Depression & Distress</div>
+                        <div class="esc-item"><strong>Acute Care</strong><br>DKA & Hypoglycemia</div>
+                        <div class="esc-item"><strong>Vascular</strong><br>Peripheral Artery Disease</div>
+                    </div>
+                    
+                    <p style="font-size: 13px; margin-top: 16px; font-weight: 600; color: var(--color-accent);">
+                        Outcome: Reduced over-utilization and predictable cost exposure.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- IMPACT BAND (WITH METRICS) -->
+        <div class="impact-band">
+            <div class="impact-grid">
+                <div class="impact-title">Why This Matters<br><span style="font-size:11px; color:#6b7280; font-weight:400; text-transform:none;">Economic Impact</span></div>
+                <div class="metrics-row">
+                    <!-- Metric 1 -->
+                    <div class="metric-card">
+                        <span class="metric-val">Early</span>
+                        <span class="metric-label">Disease Control</span>
+                        <span class="metric-desc">HbA1c stays within target ranges significantly longer.</span>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div class="metric-card">
+                        <span class="metric-val">-20%</span>
+                        <span class="metric-label">Complications</span>
+                        <span class="metric-desc">Reduction in secondary issues (eyes, kidneys, feet).</span>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div class="metric-card">
+                        <span class="metric-val">Lower</span>
+                        <span class="metric-label">Utilization</span>
+                        <span class="metric-desc">Reduced hospital & specialist visits via better management.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION BREAK: OPERATIONAL EXPANSION -->
+        <div class="section-header">
+            <h2>Operationalizing the Hybrid Ecosystem</h2>
+            <p>Loop’s "Clinic Governs, Partners Execute" model leverages existing national infrastructure for diagnostics and pharmacy while retaining full clinical control.</p>
+        </div>
+
+        <!-- ECOSYSTEM BODY -->
+        <div class="main-body ecosystem-layout">
+            
+            <div class="section-label">Ecosystem Identification & Enrollment</div>
+
+            <div class="process-grid">
+                <!-- 1. Payers -->
+                <div class="process-step">
+                    <div class="step-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h4>Payers & TPAs</h4>
+                    <p><strong>Claims Data Ingestion:</strong> Loop analyzes historical TPA/Insurer claims to identify members with <strong>prediabetes</strong> or uncontrolled risk for immediate outreach.</p>
+                    <div class="step-tag">Data-Driven</div>
+                </div>
+                <!-- 2. Partners -->
+                <div class="process-step">
+                    <div class="step-icon"><i class="fa-solid fa-vial"></i></div>
+                    <h4>Diagnostic Partners</h4>
+                    <p><strong>Critical Value Triggers:</strong> Partners like Prodia share abnormal results (e.g., HbA1c > 6.5%), triggering auto-referrals into the Loop clinic.</p>
+                    <div class="step-tag">Partner Referral</div>
+                </div>
+                <!-- 3. Policy -->
+                 <div class="process-step">
+                    <div class="step-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <h4>Insurance Policy</h4>
+                    <p><strong>Plan Design Integration:</strong> High-risk members are mandatorily routed to Loop as the designated "Gatekeeper" for metabolic coverage.</p>
+                    <div class="step-tag">Policy-Driven</div>
+                </div>
+            </div>
+
+            <div class="section-label">Care Delivery & Governance Architecture</div>
+
+            <div class="ecosystem-diagram">
+                
+                <!-- Left Partners (Inputs) -->
+                <div class="partner-group">
+                    <div class="partner-box left">
+                        <h4>Diagnostics & Labs</h4>
+                        <span class="partner-names">Prodia • Diagnos • Kimia Farma</span>
+                        <div class="partner-role">Standardized metabolic panels defined by Loop protocols.</div>
+                    </div>
+                    <div class="partner-box left">
+                        <h4>Telemedicine & Devices</h4>
+                        <span class="partner-names">Glucometers • CGM • Telemedicine</span>
+                        <div class="partner-role">
+                            <strong>Machine Learning & Predictive Analysis</strong><br>
+                            Algorithms analyze patient data streams to detect early deterioration signs.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Hub -->
+                <div class="center-hub">
+                    <h3>Loop Integrated Clinic</h3>
+                    <p style="margin-bottom: 12px; font-weight: 600; color: #fff;">Governance Core</p>
+                    <p>ML Risk Scoring</p>
+                    <p>Referral Authorization</p>
+                    <p>Formulary Enforcement</p>
+                    <p>Protocol Management</p>
+                </div>
+
+                <!-- Right Partners (Outputs) -->
+                <div class="partner-group">
+                    <div class="partner-box right">
+                        <h4>Pharmacy Fulfillment</h4>
+                        <span class="partner-names">Kimia Farma • K24 • Halodoc</span>
+                        <div class="partner-role">Formulary-aligned prescribing with generics-first logic.</div>
+                    </div>
+                    <div class="partner-box right">
+                        <h4>Specialist Network</h4>
+                        <span class="partner-names">Eye Centers • Dialysis • Hospitals</span>
+                        <div class="partner-role">Escalation only when clinical thresholds are breached.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section-label">Evolution to a Full Metabolic Clinic</div>
+
+            <div class="scope-grid">
+                <!-- 1. Core -->
+                <div class="scope-card active">
+                    <span class="scope-tag tag-live">Live</span>
+                    <div class="scope-title">Diabetes & Prediabetes</div>
+                    <div class="scope-desc">
+                        Core capabilities including HbA1c control, CGM monitoring, and hypo/hyperglycemia prevention.
+                    </div>
+                </div>
+                <!-- 2. Next -->
+                <div class="scope-card next">
+                    <span class="scope-tag tag-next">Next Phase</span>
+                    <div class="scope-title">Hypertension & Lipids</div>
+                    <div class="scope-desc">
+                        Remote blood pressure monitoring, cholesterol management, and integrated stroke risk reduction.
+                    </div>
+                </div>
+                <!-- 3. Roadmap -->
+                <div class="scope-card future">
+                    <span class="scope-tag tag-future">Roadmap</span>
+                    <div class="scope-title">Obesity & Weight</div>
+                    <div class="scope-desc">
+                        Medical weight management, GLP-1 protocol supervision, and nutritional therapy for obesity.
+                    </div>
+                </div>
+                <!-- 4. Vision -->
+                <div class="scope-card future">
+                    <span class="scope-tag tag-future">Vision</span>
+                    <div class="scope-title">Integrated Metabolic</div>
+                    <div class="scope-desc">
+                        Full cardio-metabolic care pathways focused on longevity, healthspan, and multi-condition management.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-label">Expanded Strategic Value</div>
+
+            <div class="benefits-grid">
+                <!-- Payer Benefits (Expanded for Investor/Payer Persona) -->
+                <div class="benefit-col">
+                    <h4>Strategic Value for Payer-Investors</h4>
+                    <ul class="benefit-list">
+                        <li><strong>MLR Optimization:</strong> Direct reduction in Medical Loss Ratio via complication avoidance and unit cost arbitrage.</li>
+                        <li><strong>Prediabetes Reversal:</strong> Stopping the progression from prediabetes to chronic diabetes, eliminating future high-cost claimants.</li>
+                        <li><strong>Fraud & Waste Control:</strong> The "Gatekeeper" model eliminates duplicate testing, phantom billing, and provider shopping.</li>
+                        <li><strong>Actuarial Feedback Loop:</strong> Real-time clinical data flows back to underwriting, improving risk pricing accuracy.</li>
+                    </ul>
+                </div>
+                
+                <!-- Patient Benefits -->
+                <div class="benefit-col">
+                    <h4>For Patients (Retention)</h4>
+                    <ul class="benefit-list">
+                        <li><strong>Seamless Experience:</strong> One provider record managing the entire journey across labs, pharmacy, and specialists.</li>
+                        <li><strong>Better Access:</strong> National coverage via partner labs and pharmacies with cashless convenience.</li>
+                        <li><strong>Proactive Care:</strong> Adjustments made *before* issues become emergencies.</li>
+                        <li><strong>Plan Stickiness:</strong> High-touch care creates high switching costs, reducing policy churn.</li>
+                    </ul>
+                </div>
+
+                <!-- Provider Benefits -->
+                <div class="benefit-col">
+                    <h4>For Loop (Asset Efficiency)</h4>
+                    <ul class="benefit-list">
+                        <li><strong>Asset-Light Scaling:</strong> Expand nationally without building clinics or labs (high ROIC).</li>
+                        <li><strong>High Margin:</strong> Revenue from clinical management fees, not just low-margin fulfillment.</li>
+                        <li><strong>Defensibility:</strong> Deep integration with payer claims workflows creates high barriers to entry.</li>
+                        <li><strong>Data Moat:</strong> Proprietary ML models trained on unique local metabolic risk profiles.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PAYER INVESTMENT BOTTOM BAND -->
+            <div class="impact-band" style="margin-top: 40px; background: #ecfdf5; border-color: #d1fae5;">
+                <div class="impact-grid">
+                    <div class="impact-title" style="color: #047857;">The "Insurer-as-Partner" Advantage</div>
+                    <div class="metrics-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="metric-card" style="border-left-color: #059669; border-left-width: 4px;">
+                            <span class="metric-label" style="color:#065f46;">Risk Control</span>
+                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">Turns uncontrolled claims liability into a managed, fixed-cost clinical pathway.</span>
+                        </div>
+                        <div class="metric-card" style="border-left-color: #059669; border-left-width: 4px;">
+                            <span class="metric-label" style="color:#065f46;">New Revenue</span>
+                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">Unlocks ability to sell metabolic riders to the 100M+ pre-diabetic/diabetic market.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-statement">
+                By governing the ecosystem rather than owning it, Loop scales faster and maintains lower unit economics than traditional vertically integrated providers.
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+```
