@@ -417,10 +417,23 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
         .center-hub h3 { margin: 0 0 12px 0; font-family: var(--font-serif); font-size: 20px; }
-        .center-hub p { font-size: 13px; color: #9ca3af; margin: 0; }
+        .center-hub p.hub-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin: 0 0 16px 0; }
         .center-hub::before {
             content: ""; position: absolute; top: -12px; left: -12px; right: -12px; bottom: -12px;
             border: 1px dashed #d1d5db; z-index: -1; border-radius: 16px;
+        }
+
+        .hub-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 10px;
+            text-align: left;
+        }
+        .hub-col h5 { color: #fff; font-size: 13px; font-weight: 700; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hub-col p { color: #d1d5db; font-size: 12px; margin: 0 0 4px 0; line-height: 1.3; }
+        .hub-badge {
+            display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+            background: rgba(255,255,255,0.15); color: #fff; padding: 3px 8px; border-radius: 4px;
+            margin-bottom: 10px; letter-spacing: 0.5px;
         }
 
         .partner-group { display: flex; flex-direction: column; gap: 20px; }
@@ -432,6 +445,12 @@
         .partner-names { font-size: 11px; font-weight: 600; color: var(--color-accent); margin-bottom: 6px; display: block; text-transform: uppercase; }
         .partner-role { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
         
+        .partner-badge {
+            display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
+            background: #f1f5f9; color: #64748b; padding: 3px 6px; border-radius: 3px;
+            margin-bottom: 8px; border: 1px solid #e2e8f0;
+        }
+
         /* Connectors */
         .partner-box.left::after { content: ""; position: absolute; top: 50%; right: -40px; width: 40px; height: 1px; background: #cbd5e1; }
         .partner-box.right::before { content: ""; position: absolute; top: 50%; left: -40px; width: 40px; height: 1px; background: #cbd5e1; }
@@ -546,14 +565,14 @@
             </div>
             <div class="header-meta">
                 <span>Loop Health</span>
-                <span>Clinical Strategy</span>
+                <span>Strategic Roadmap: Series B</span>
             </div>
         </header>
 
         <!-- TOP STATEMENT -->
         <div class="statement-band">
             <div class="statement-text">
-                "Loop operates a licensed digital metabolic clinic that intervenes early to control disease progression — standardizing care delivery while personalizing treatment for each patient."
+                "<strong>Strategic Vision:</strong> Loop is building a licensed digital metabolic clinic covering <strong>Diabetes, Prediabetes, Obesity, and Hypertension</strong> that intervenes early to control disease progression — standardizing care delivery while personalizing treatment for each patient."
             </div>
         </div>
 
@@ -562,7 +581,7 @@
             
             <!-- LEFT: THE CARE JOURNEY -->
             <div class="col-left">
-                <div class="section-label">The Loop Care Journey</div>
+                <div class="section-label">Target Care Journey</div>
 
                 <div class="journey-flow">
                     
@@ -644,7 +663,7 @@
 
             <!-- RIGHT: GOVERNANCE & TRIANGLE -->
             <div class="col-right">
-                <div class="section-label">Ecosystem Structure</div>
+                <div class="section-label">Target Ecosystem Structure</div>
 
                 <!-- TRIANGLE DIAGRAM -->
                 <div class="triangle-visual">
@@ -751,7 +770,7 @@
                 <div class="process-step">
                     <div class="step-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                     <h4>Payers & TPAs</h4>
-                    <p><strong>Claims Data Ingestion:</strong> Loop analyzes historical TPA/Insurer claims to identify members with <strong>prediabetes</strong> or uncontrolled risk for immediate outreach.</p>
+                    <p><strong>Claims Data Ingestion:</strong> Loop analyzes historical claims to identify members with <strong>diabetes, prediabetes, obesity</strong>, and (in the future) <strong>hypertension</strong> for immediate outreach.</p>
                     <div class="step-tag">Data-Driven</div>
                 </div>
                 <!-- 2. Partners -->
@@ -777,38 +796,45 @@
                 <!-- Left Partners (Inputs) -->
                 <div class="partner-group">
                     <div class="partner-box left">
+                        <div class="partner-badge">External Partner</div>
                         <h4>Diagnostics & Labs</h4>
                         <span class="partner-names">Prodia • Diagnos • Kimia Farma</span>
                         <div class="partner-role">Standardized metabolic panels defined by Loop protocols.</div>
-                    </div>
-                    <div class="partner-box left">
-                        <h4>Telemedicine & Devices</h4>
-                        <span class="partner-names">Glucometers • CGM • Telemedicine</span>
-                        <div class="partner-role">
-                            <strong>Machine Learning & Predictive Analysis</strong><br>
-                            Algorithms analyze patient data streams to detect early deterioration signs.
-                        </div>
                     </div>
                 </div>
 
                 <!-- Center Hub -->
                 <div class="center-hub">
+                    <span class="hub-badge">Loop In-House</span>
                     <h3>Loop Integrated Clinic</h3>
-                    <p style="margin-bottom: 12px; font-weight: 600; color: #fff;">Governance Core</p>
-                    <p>ML Risk Scoring</p>
-                    <p>Referral Authorization</p>
-                    <p>Formulary Enforcement</p>
-                    <p>Protocol Management</p>
+                    
+                    <div class="hub-grid">
+                        <div class="hub-col">
+                            <h5>Governance Core</h5>
+                            <p>AI Health Predictions</p>
+                            <p>Referral Approvals</p>
+                            <p>Medication Cost Control</p>
+                            <p>Standardized Care Plans</p>
+                        </div>
+                        <div class="hub-col">
+                            <h5>Care Delivery</h5>
+                            <p><strong>Telemedicine:</strong> Doctors & Coaches</p>
+                            <p><strong>Devices:</strong> Glucometers & CGM Supply</p>
+                            <p><strong>Monitoring:</strong> 24/7 Command Center</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Right Partners (Outputs) -->
                 <div class="partner-group">
                     <div class="partner-box right">
+                        <div class="partner-badge">External Partner</div>
                         <h4>Pharmacy Fulfillment</h4>
                         <span class="partner-names">Kimia Farma • K24 • Halodoc</span>
-                        <div class="partner-role">Formulary-aligned prescribing with generics-first logic.</div>
+                        <div class="partner-role">Cost-optimized prescribing using generics to keep prices low.</div>
                     </div>
                     <div class="partner-box right">
+                        <div class="partner-badge">External Partner</div>
                         <h4>Specialist Network</h4>
                         <span class="partner-names">Eye Centers • Dialysis • Hospitals</span>
                         <div class="partner-role">Escalation only when clinical thresholds are breached.</div>
@@ -891,18 +917,22 @@
                 </div>
             </div>
 
-            <!-- PAYER INVESTMENT BOTTOM BAND -->
+            <!-- STRATEGIC RATIONALE BOTTOM BAND -->
             <div class="impact-band" style="margin-top: 40px; background: #ecfdf5; border-color: #d1fae5;">
                 <div class="impact-grid">
-                    <div class="impact-title" style="color: #047857;">The "Insurer-as-Partner" Advantage</div>
+                    <div class="impact-title" style="color: #047857;">Why Market Entry Makes Sense</div>
                     <div class="metrics-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="metric-card" style="border-left-color: #059669; border-left-width: 4px;">
-                            <span class="metric-label" style="color:#065f46;">Risk Control</span>
-                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">Turns uncontrolled claims liability into a managed, fixed-cost clinical pathway.</span>
+                            <span class="metric-label" style="color:#065f46;">1. Clear Pipeline (Zero CAC)</span>
+                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">
+                                Unlike B2C apps fighting for users, our pipeline is clear and guaranteed. Access to TPA claims data and insurance policy mandates allows us to enroll high-need members with near-zero acquisition cost.
+                            </span>
                         </div>
                         <div class="metric-card" style="border-left-color: #059669; border-left-width: 4px;">
-                            <span class="metric-label" style="color:#065f46;">New Revenue</span>
-                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">Unlocks ability to sell metabolic riders to the 100M+ pre-diabetic/diabetic market.</span>
+                            <span class="metric-label" style="color:#065f46;">2. Perfect Incentive Alignment</span>
+                            <span class="metric-desc" style="font-size: 13px; color:#064e3b;">
+                                The ecosystem welcomes this entry because incentives are finally aligned. Payers reduce claims liability, Providers (partners) get volume, and Loop captures value by orchestrating the efficiency.
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -913,7 +943,7 @@
         <!-- FOOTER -->
         <footer>
             <div class="footer-statement">
-                By governing the ecosystem rather than owning it, Loop scales faster and maintains lower unit economics than traditional vertically integrated providers.
+                This roadmap upgrades Loop from a digital service into a clinic-led metabolic platform that insurers can route members into and scale.
             </div>
         </footer>
 
@@ -921,4 +951,3 @@
 
 </body>
 </html>
-```
