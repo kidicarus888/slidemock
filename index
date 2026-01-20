@@ -6,7 +6,7 @@
     <title>Metabolic Disease Control Strategy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* --- INSTITUTIONAL THEME VARIABLES --- */
@@ -15,7 +15,7 @@
             --color-bg-subtle: #f9fafb;
             --color-text-primary: #111827; /* Near Black */
             --color-text-secondary: #4b5563; /* Cool Grey */
-            --color-accent: #0f766e; /* Clinical Teal - Serious & Calm */
+            --color-accent: #0f766e; /* Clinical Teal */
             --color-border: #e5e7eb;
             --color-line: #d1d5db;
             
@@ -34,7 +34,7 @@
             line-height: 1.5;
         }
 
-        /* --- MAIN WEBSITE CONTAINER --- */
+        /* --- MAIN CONTAINER --- */
         .web-container {
             background: var(--color-bg);
             width: 100%;
@@ -91,7 +91,7 @@
         }
         .statement-text {
             font-family: var(--font-serif);
-            font-size: 26px;
+            font-size: 24px;
             color: var(--color-text-primary);
             max-width: 1000px;
             margin: 0 auto;
@@ -432,14 +432,14 @@
         .hub-col p { color: #d1d5db; font-size: 12px; margin: 0 0 4px 0; line-height: 1.3; }
         .hub-badge {
             display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
-            background: rgba(255,255,255,0.15); color: #fff; padding: 3px 8px; border-radius: 4px;
+            background: #3b82f6; color: #fff; padding: 4px 10px; border-radius: 4px;
             margin-bottom: 10px; letter-spacing: 0.5px;
         }
 
         .partner-group { display: flex; flex-direction: column; gap: 20px; }
         .partner-box {
-            background: white; border: 1px solid var(--color-border); padding: 20px;
-            border-radius: 8px; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            background: white; border: 1px dashed #94a3b8; padding: 20px;
+            border-radius: 8px; position: relative; box-shadow: none;
         }
         .partner-box h4 { margin: 0 0 6px 0; font-size: 14px; font-weight: 700; color: var(--color-text-primary); }
         .partner-names { font-size: 11px; font-weight: 600; color: var(--color-accent); margin-bottom: 6px; display: block; text-transform: uppercase; }
@@ -796,7 +796,7 @@
                 <!-- Left Partners (Inputs) -->
                 <div class="partner-group">
                     <div class="partner-box left">
-                        <div class="partner-badge">External Partner</div>
+                        <div class="partner-badge">External Partner Network</div>
                         <h4>Diagnostics & Labs</h4>
                         <span class="partner-names">Prodia • Diagnos • Kimia Farma</span>
                         <div class="partner-role">Standardized metabolic panels defined by Loop protocols.</div>
@@ -805,7 +805,7 @@
 
                 <!-- Center Hub -->
                 <div class="center-hub">
-                    <span class="hub-badge">Loop In-House</span>
+                    <span class="hub-badge">Loop In-House (Command Center)</span>
                     <h3>Loop Integrated Clinic</h3>
                     
                     <div class="hub-grid">
@@ -817,7 +817,7 @@
                             <p>Standardized Care Plans</p>
                         </div>
                         <div class="hub-col">
-                            <h5>Care Delivery</h5>
+                            <h5>In-House Delivery</h5>
                             <p><strong>Telemedicine:</strong> Doctors & Coaches</p>
                             <p><strong>Devices:</strong> Glucometers & CGM Supply</p>
                             <p><strong>Monitoring:</strong> 24/7 Command Center</p>
@@ -828,13 +828,13 @@
                 <!-- Right Partners (Outputs) -->
                 <div class="partner-group">
                     <div class="partner-box right">
-                        <div class="partner-badge">External Partner</div>
+                        <div class="partner-badge">External Partner Network</div>
                         <h4>Pharmacy Fulfillment</h4>
                         <span class="partner-names">Kimia Farma • K24 • Halodoc</span>
                         <div class="partner-role">Cost-optimized prescribing using generics to keep prices low.</div>
                     </div>
                     <div class="partner-box right">
-                        <div class="partner-badge">External Partner</div>
+                        <div class="partner-badge">External Partner Network</div>
                         <h4>Specialist Network</h4>
                         <span class="partner-names">Eye Centers • Dialysis • Hospitals</span>
                         <div class="partner-role">Escalation only when clinical thresholds are breached.</div>
